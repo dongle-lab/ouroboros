@@ -1,6 +1,3 @@
-[package]
-name = "ouroboros"
-version = "0.1.0"
-edition = "2024"
-
-[dependencies]
+[workspace]
+members = ["app", "maze"]
+resolver = "2"
