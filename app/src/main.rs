@@ -1,3 +1,3 @@
 fn main() {
-    println!("{:?}", maze::gen_maze());
+    rust101::foo();
 }

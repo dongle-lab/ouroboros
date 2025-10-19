@@ -7,6 +7,7 @@ name = "app"
 version = "0.1.0"
 dependencies = [
  "maze",
+ "rust101",
 ]
 
 [[package]]
@@ -100,6 +101,13 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "99d9a13982dcf210057a8a78572b2217b667c3beacbf3a0d8b454f6f82837d38"
 dependencies = [
  "getrandom",
+]
+
+[[package]]
+name = "rust101"
+version = "0.1.0"
+dependencies = [
+ "rand",
 ]
 
 [[package]]
