@@ -3,6 +3,8 @@
 zig-out/
 *.o
 *.obj
+*.lib
+*.a
 *.so
 *.dylib
 *.dll
@@ -12,8 +14,9 @@ zig-out/
 .vscode/
 .idea/
 *.swp
-*~
-
-# Operating System generated files
 .DS_Store
 Thumbs.db
+
+# Other common temporary or generated files
+log/
+tmp/
