@@ -1,16 +1,27 @@
 const std = @import("std");
-const expect = std.testing.expect;
+const server = @import("server");
 
-fn fibo(n: u16) u16 {
-    if (n == 0 or n == 1) return n;
-    return fibo(n - 1) + fibo(n - 2);
+pub fn main() !void {
+    // Prints to stderr, ignoring potential errors.
+    std.debug.print("All your {s} are belong to us.\n", .{"codebase"});
+    try server.bufferedPrint();
 }
 
-test "recursive" {
-    const x = fibo(10);
-    try expect(x == 55);
+test "simple test" {
+    const gpa = std.testing.allocator;
+    var list: std.ArrayList(i32) = .empty;
+    defer list.deinit(gpa); // Try commenting this out and see if zig detects the memory leak!
+    try list.append(gpa, 42);
+    try std.testing.expectEqual(@as(i32, 42), list.pop());
 }
 
-pub fn main() void {
-    std.debug.print("Hello, {s}!\n", .{"World"});
+test "fuzz example" {
+    const Context = struct {
+        fn testOne(context: @This(), input: []const u8) anyerror!void {
+            _ = context;
+            // Try passing `--fuzz` to `zig build test` and see if it manages to fail this test case!
+            try std.testing.expect(!std.mem.eql(u8, "canyoufindme", input));
+        }
+    };
+    try std.testing.fuzz(Context{}, Context.testOne, .{});
 }
