@@ -1,0 +1,65 @@
+# Build artifacts
+*.o
+*.obj
+*.ko
+*.mod.c
+*.mod
+*.a
+*.lib
+*.so
+*.dll
+*.exe
+*.out
+*.app
+*.lo
+*.la
+*.lai
+*.al
+*.po
+*.pot
+*.aux
+*.log
+*.lof
+*.lot
+*.fls
+*.toc
+*.idx
+*.bbl
+*.blg
+*.fdb_latexmk
+*.synctex.gz
+*.gz
+
+# Clang specific outputs
+*.dSYM/ # Debug symbols directory on macOS
+*.gcno # Gcov coverage data
+*.gcda # Gcov coverage data
+*.gcov # Gcov coverage data
+*.profdata # Clang profiling data
+*.plist # Clang static analyzer output
+
+# Editor and IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+*.bak
+*.orig
+*.rej
+.DS_Store # macOS specific
+Thumbs.db # Windows specific
+
+# Dependency management (e.g., Conan, vcpkg)
+conanbuildinfo.cmake
+conaninfo.txt
+conanbuildinfo.txt
+conan.lock
+build/ # Common build directory
+install/ # Common install directory
+vcpkg_installed/
+
+# Other temporary files
+*.tmp
+*.temp
+*.cache
