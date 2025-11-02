@@ -28,7 +28,7 @@ pub fn build(b: *std.Build) void {
     // to our consumers. We must give it a name because a Zig package can expose
     // multiple modules and consumers will need to be able to specify which
     // module they want to access.
-    const mod = b.addModule("ouroboros", .{
+    const mod = b.addModule("server", .{
         // The root source file is the "entry point" of this module. Users of
         // this module will only be able to access public declarations contained
         // in this file, which means that if you have declarations that you
@@ -44,7 +44,7 @@ pub fn build(b: *std.Build) void {
     // Here we define an executable. An executable needs to have a root module
     // which needs to expose a `main` function. While we could add a main function
     // to the module defined above, it's sometimes preferable to split business
-    // logic and the CLI into two separate modules.
+    // business logic and the CLI into two separate modules.
     //
     // If your goal is to create a Zig library for others to use, consider if
     // it might benefit from also exposing a CLI tool. A parser library for a
@@ -58,7 +58,7 @@ pub fn build(b: *std.Build) void {
     // If neither case applies to you, feel free to delete the declaration you
     // don't need and to put everything under a single module.
     const exe = b.addExecutable(.{
-        .name = "ouroboros",
+        .name = "server",
         .root_module = b.createModule(.{
             // b.createModule defines a new module just like b.addModule but,
             // unlike b.addModule, it does not expose the module to consumers of
@@ -73,12 +73,12 @@ pub fn build(b: *std.Build) void {
             // List of modules available for import in source files part of the
             // root module.
             .imports = &.{
-                // Here "ouroboros" is the name you will use in your source code to
-                // import this module (e.g. `@import("ouroboros")`). The name is
+                // Here "server" is the name you will use in your source code to
+                // import this module (e.g. `@import("server")`). The name is
                 // repeated because you are allowed to rename your imports, which
                 // can be extremely useful in case of collisions (which can happen
                 // importing modules from different packages).
-                .{ .name = "ouroboros", .module = mod },
+                .{ .name = "server", .module = mod },
             },
         }),
     });
