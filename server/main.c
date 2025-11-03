@@ -1,12 +1,12 @@
 #include <stdio.h>
 
-// https://beej.us/guide/bgc/html/split/variables-and-statements.html
 int main(void)
 {
-    int i;
-    float f;
+    int a = 9999;
 
-    i = 2;
-
-    printf("Hello, World! %d, %f \n", i, f);
+    printf("%zu\n", sizeof a);
+    printf("%zu\n", sizeof(2 + 7));
+    printf("%zu\n", sizeof 3.14);
+    printf("%zu\n", sizeof "asdasdqfqwwerwerwerrqerfqwefqefqgesadf");
+    printf("%zu\n", sizeof 'a');
 }
